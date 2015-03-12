@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <script type="application/javascript">
+    function draw() {
+      var canvas = document.getElementById("canvas");
+	  var t2 = document.getElementById("t2");
+	  var t3 = document.getElementById("t3");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (10, 10, 55, 50);
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect (30, 30, 55, 50);
+      }
+	  
+	  var t2ctx = t2.getContext("2d");
+	  t2ctx.fillRect(25,25,100,100);
+	  t2ctx.clearRect(45,45,60,60);
+	  t2ctx.fillRect(50, 50, 50, 50);
+      t2ctx.strokeRect(50,50,50,50);
+	var t3ctx = t3.getContext("2d");
+	t3ctx.beginPath();
+    t3ctx.moveTo(75,50);
+    t3ctx.lineTo(100,75);
+    t3ctx.lineTo(100,25);
+	t3ctx.stroke();
+	t3ctx.closePath();
+ //   t3ctx.fill();
+    }
+  </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="canvas" width="150" height="150"></canvas>
+   <canvas id="t2" width="200" height="200"></canvas>
+   <canvas id="t3" width="200" height="200"></canvas>
+ </body>
+</html>
+<!-- 主要测试浏览器是否支持HTML5 这个标签
+	如果支持，浏览器是看不到图片和文字的
+	如果不支持，浏览器可以看到文字图片
+ <html>
+<canvas id="stockGraph" width="150" height="150">
+  current stock price: $3.15 +0.15
+</canvas>
+
+<canvas id="clock" width="150" height="150">
+  <img src="buggui_overhead.png" width="150" height="150" alt=""/>
+</canvas>
+</html> -->
